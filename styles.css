@@ -724,7 +724,7 @@ ul {
     transform: scale(1.1);
 }
 
-/* Animations */
+/* Enhanced Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -733,6 +733,39 @@ ul {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -748,6 +781,29 @@ ul {
     }
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -757,6 +813,37 @@ ul {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-element.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-number {
+    animation: scaleIn 0.8s ease-out;
+}
+
+.gallery-item {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-title {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-tagline {
+    animation: fadeInUp 1.2s ease-out 0.2s both;
+}
+
+.hero-cta {
+    animation: fadeInUp 1.2s ease-out 0.4s both;
 }
 
 /* Responsive Design */
