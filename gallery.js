@@ -138,10 +138,18 @@ function initializeMasonry() {
     }
     
     function resizeGridItem(item) {
+        if (!item) return;
         const grid = document.querySelector('.gallery-grid');
-        const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-        const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-        const rowSpan = Math.ceil((item.querySelector('.gallery-item').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+        if (!grid) return;
+        
+        const gridStyles = window.getComputedStyle(grid);
+        const rowHeight = parseInt(gridStyles.getPropertyValue('grid-auto-rows')) || 250;
+        const rowGap = parseInt(gridStyles.getPropertyValue('grid-row-gap')) || 20;
+        
+        const itemRect = item.getBoundingClientRect();
+        if (itemRect.height === 0) return;
+        
+        const rowSpan = Math.ceil((itemRect.height + rowGap) / (rowHeight + rowGap));
         item.style.gridRowEnd = 'span ' + rowSpan;
     }
     
