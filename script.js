@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeLightbox();
     initializeScrollAnimations();
     initializeSmoothScrolling();
+    initializeImageLoading();
+    initializeEnhancedAnimations();
 });
 
 // Theme Management
@@ -133,6 +135,8 @@ function updateActiveNavLink() {
 
 // Gallery Management
 function initializeGallery() {
+    if (!filterButtons.length || !galleryItems.length) return;
+    
     // Filter button event listeners
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -193,6 +197,8 @@ function updateFilteredImages() {
 
 // Lightbox Management
 function initializeLightbox() {
+    if (!lightbox || !lightboxClose || !lightboxPrev || !lightboxNext) return;
+    
     // Close lightbox event listeners
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
@@ -440,7 +446,114 @@ function initializeAccessibility() {
 
 initializeAccessibility();
 
+// Enhanced image loading with animations
+function initializeImageLoading() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        }
+    });
+}
+
+// Enhanced animations and interactions
+function initializeEnhancedAnimations() {
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+    
+    // Enhanced hover effects for buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px) scale(1.02)';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Enhanced gallery item animations
+    const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        galleryObserver.observe(item);
+    });
+    
+    // Smooth scroll effect for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 70;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Enhanced theme toggle interaction
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
+}
+
+// Performance optimizations for animations
+function optimizeAnimations() {
+    // Reduce animations on slower devices
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+        document.documentElement.style.setProperty('--transition-fast', '0s');
+        document.documentElement.style.setProperty('--transition-normal', '0s');
+        document.documentElement.style.setProperty('--transition-slow', '0s');
+    }
+    
+    // Pause animations when page is not visible
+    document.addEventListener('visibilitychange', function() {
+        const animatedElements = document.querySelectorAll('*');
+        if (document.hidden) {
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+            });
+        } else {
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+        }
+    });
+}
+
+// Initialize performance optimizations
+optimizeAnimations();
+
 // Console welcome message
 console.log('%c📸 Muhammad Uzair Photography Portfolio', 'color: #D4AF37; font-size: 16px; font-weight: bold;');
-console.log('%cCapturing Emotions Through the Lens', 'color: #2C2C2C; font-size: 12px;');
+console.log('%cAward-Winning Visual Storyteller | Social Media Content Creator', 'color: #2C2C2C; font-size: 12px;');
 console.log('%cWebsite built with vanilla HTML, CSS, and JavaScript', 'color: #666; font-size: 10px;');
