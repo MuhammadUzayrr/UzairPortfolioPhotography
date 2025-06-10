@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Muhammad Uzair Photography</title>
+    <meta name="description" content="Photography gallery showcasing award-winning work by Muhammad Uzair - Portrait, Landscape, Street and Commercial photography">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Muhammad Uzair</a>
+            </div>
+            
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link active">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="work.html" class="nav-link">My Work</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content">
+                <h1 class="gallery-hero-title">Photography Gallery</h1>
+                <p class="gallery-hero-subtitle">A curated collection of my photography work across different genres and styles</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-main">
+        <div class="container">
+            <!-- Gallery Filter -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+                <button class="filter-btn" data-filter="landscape">Landscape</button>
+                <button class="filter-btn" data-filter="portrait">Portrait</button>
+                <button class="filter-btn" data-filter="street">Street</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Professional Photography Portfolio -->
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/g0fbccd598d4622fe5d2149870dee8d5732f3c54762cb5bb8c40a118e1920ce1de60b7ea2f99282bf0aabd18da1ed2ced5c7c867bb70281bd6ce8991f254f0bd2_1280.jpg" alt="Professional Photography" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Professional Setup</h3>
+                        <p>Studio Photography</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/gcfa4f624c4f879af5638f6cca37c7a4fa2a4b9ef2fe586f522d1710458e3a01751bf608e6686cd0409d47049ecefe16f8e11396536e6a2443243dbc03eb015f0_1280.jpg" alt="Photography Equipment" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Behind the Scenes</h3>
+                        <p>Equipment & Setup</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/g8bc5c5c9d6024ceb77e907c5555ec74518c1d0097a651d3fec57cd8cf155381b67797a5eefe25a284f7e0c684ee7f2ee16f3b9a6324029614d584f626ecf959c_1280.jpg" alt="Camera Work" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Creative Process</h3>
+                        <p>In Action</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/gbb28da8160bec89ff0dc4a40079d2a6d4ba8cdca0e06a97ccd3b0a3e587c6856a4ff234d300145b568eede466a15a6593e8f12431d2af781f37621d475009ac8_1280.jpg" alt="Professional Photographer" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Professional Work</h3>
+                        <p>Commercial Photography</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/g7d6e6697edbf78c062134972c0bac6ccc39badff7aa3b781b4b0f9504908fb55f5542b70f9175ded6cb1feeed290f2a234f402064f33c2ec4d5d9e3a6e34dc0f_1280.jpg" alt="Studio Photography" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Studio Mastery</h3>
+                        <p>Controlled Environment</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/g85b44f20306d8f9a0274b1f526ff2729921307d760725292ec014ebe178f0c091a554ef8fe129bd16bb65eab23cdf6b948d28e59e30641282f126f213c0cdc47_1280.jpg" alt="Photography Session" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Client Sessions</h3>
+                        <p>Professional Service</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/gfb4d737db1e9a618f53729e6f80436482f2606b8e33fdedd75733a26befd345fa26e54cefdb89de2c07d62104ba335efac12bb971affd72b9ecb19e8641d3917_1280.jpg" alt="Photography Art" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Artistic Vision</h3>
+                        <p>Creative Expression</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portfolio">
+                    <img src="https://pixabay.com/get/gdeeeb92c52da233aca930a2d1b960f43b5e5cecbf1316b17f751623515b03635b04333e7933bc44e4546013277c269b3d3a5f1ad22f7a79bde709723af4a9b1c_1280.jpg" alt="Camera Equipment" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Technical Excellence</h3>
+                        <p>Professional Gear</p>
+                    </div>
+                </div>
+
+                <!-- Landscape Photography -->
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/g0238ef3bbdad996128bb0526de43ed73935d1c85f59d23557f90fbabae7d0d277466a29e551a7e720a4931ba8e5342a6269e672a2396a18344a2efcb70a891a2_1280.png" alt="Mountain Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mountain Vista</h3>
+                        <p>Nature's Majesty</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/g7a1be6b36af5c9b3640706a72781001cdf90da54d02a6c9cfa2c2dcb813741eac0ad4359d61e8ab1a3d372059980aea51abbfc9e1f2c5fb108314a5fb0c5211d_1280.jpg" alt="Sunset Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Golden Hour</h3>
+                        <p>Sunset Beauty</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/g51b9ad51e64d0280deb572e732d83a5dc47aeb1af4b9f58352e3697d7d18e1a4a2bfa8bb5a1392432efa306ccd49b605a41103b599be920b7f1fcba79953fd62_1280.jpg" alt="Forest Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Forest Serenity</h3>
+                        <p>Natural Wonder</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/ga3ad7998bac7036a9703cde2e203102030fa437cc216aebfc772eef4a4eafbc1283898a96bcc92b7f04e4013fc844fb9915ea122f408d4ec7608e00ecdfdb158_1280.jpg" alt="Ocean Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ocean Views</h3>
+                        <p>Coastal Beauty</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/g235bc945f5d929eb6a8a23b2e8d6c78799998018081b293ef7def34e64566a5a70819bd7163ce6cab6347e178d9dbd15a919431cd955aaf664e7de2b3c577b95_1280.jpg" alt="Desert Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Desert Dreams</h3>
+                        <p>Arid Beauty</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://pixabay.com/get/g9530cac9fac7f3d9ff44ff4b3b6b439f4c8c769546e8fc3893e97e21b0ea53ccb7ebf458da360fd2190d65ac4b276a811b6dfcaa17032c43839de652895abfc8_1280.jpg" alt="Valley Landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Valley Vista</h3>
+                        <p>Panoramic View</p>
+                    </div>
+                </div>
+
+                <!-- Portrait Photography -->
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/gd60edadd6c9128179fe00a49c0b58613d4d6cd3ddb7f38c171b484645ca9cd7e6abbade86316177c4856d0bba29feb643450f8f8e02ea797b0608281e75cb929_1280.jpg" alt="Professional Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Professional Portrait</h3>
+                        <p>Executive Photography</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/g29163b499c04e64e9f6c107602772347ea8c4af5d64548f4b5bbc12bf5853c4b8ce4f428ef4b85838fe34487e1d00b311c8330fc937d7afded52ea7b8abe4385_1280.jpg" alt="Creative Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Creative Expression</h3>
+                        <p>Artistic Portrait</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/g257295dfe1f424a301ba47788456a4abc443196b728e877d59b84fd4b406c140f3ed576fc4a5ca637f7e4fb1fc4582841e6d85ae9c4cd7d78788d4e33fb891b4_1280.jpg" alt="Emotional Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Emotional Depth</h3>
+                        <p>Capturing Soul</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/gf16b5fc5324707722324bbb05266084c2533b7c5fa691dc41f5014215526522207d4b8c27f1a5d011f520d5b0be7a50f89f874895a39bba87ba0e6248e164659_1280.jpg" alt="Studio Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Studio Portrait</h3>
+                        <p>Controlled Lighting</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/ge8c10709188d732d872c155c5ea0f76d6a2313a763b4bc8d77cacf4c28e5931ccfa060539ece624e3ebf2d90f5824bc5c1cedb44f830e8d450730a012a8db6d7_1280.jpg" alt="Family Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Family Moments</h3>
+                        <p>Intimate Connections</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="portrait">
+                    <img src="https://pixabay.com/get/g6a44e56d5f7f15bb396ceb9e50c27b953dfa3181abfca4776bc1de2ec085fdf7d2f5fc704e45bd252cf7ae3c250b801ea54dc42095db914141dca83d12524877_1280.jpg" alt="Character Portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Character Study</h3>
+                        <p>Personality Captured</p>
+                    </div>
+                </div>
+
+                <!-- Street Photography -->
+                <div class="gallery-item" data-category="street">
+                    <img src="https://pixabay.com/get/gcb3bfe15cecbb3a1bc6db58482daea974d9760bd2096d5c83df6014a102154ad3457ce305cba1d1d9d74649fdbd0282c310c833849c7b1bae9d503620a62c719_1280.jpg" alt="Urban Street" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Urban Life</h3>
+                        <p>City Streets</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="street">
+                    <img src="https://pixabay.com/get/g1aa672e33a1a63db33ffccd226b21482d7ee25475ed7f8c0c577e1d039b7fb6b9683b0fd6d289f5f8dfd1bd89214b2d6ee30cd8d3096f509f21589398c9e9b3f_1280.jpg" alt="Street Culture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Street Culture</h3>
+                        <p>Authentic Moments</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="street">
+                    <img src="https://pixabay.com/get/gac1a24668b2f2517344e9cd66988d6aae101a07453ccb3934a672b34be6083908c5b1e7eb40ec4aa0f14c5eb0bf024f4b93ab08aae33d9b3f2242e527699cc42_1280.jpg" alt="Street People" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Human Stories</h3>
+                        <p>Candid Moments</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="street">
+                    <img src="https://pixabay.com/get/g36862c90e62f9b360c6bd3d7cc6bbafefd9e5d62a94218d9785384a3711e287900713fe4c33fa151bbea3ae92991a2b9b33eff9507fdc788c9aea9f0b69eb1e7_1280.jpg" alt="Street Architecture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Urban Architecture</h3>
+                        <p>City Geometry</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Stats Section -->
+    <section class="gallery-stats-section">
+        <div class="container">
+            <div class="gallery-stats-grid">
+                <div class="gallery-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Featured Images</div>
+                </div>
+                
+                <div class="gallery-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label">Photography Categories</div>
+                </div>
+                
+                <div class="gallery-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-label">International Awards</div>
+                </div>
+                
+                <div class="gallery-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-number" data-target="2000">0</div>
+                    <div class="stat-label">Instagram Followers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Muhammad Uzair. All rights reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://instagram.com/uzayyrrr" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammad-uzair-136214178/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:m.uzairmangi@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+923337277937">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+            </div>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" id="lightboxPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-next" id="lightboxNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
