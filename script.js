@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Theme Management
 function initializeTheme() {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
-    
+
     // Theme toggle event listener
     themeToggle.addEventListener('click', toggleTheme);
 }
@@ -76,11 +76,11 @@ function initializeNavigation() {
         });
     });
     
-    // Navbar scroll effect
-    window.addEventListener('scroll', handleNavbarScroll);
-    
-    // Active navigation link highlighting
-    window.addEventListener('scroll', updateActiveNavLink);
+    // Navbar scroll effect and active link highlighting (combined for performance)
+    window.addEventListener('scroll', debounce(() => {
+        handleNavbarScroll();
+        updateActiveNavLink();
+    }, 10));
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
@@ -339,12 +339,7 @@ function debounce(func, wait) {
     };
 }
 
-// Performance optimizations
-const debouncedNavbarScroll = debounce(handleNavbarScroll, 10);
-const debouncedActiveNavLink = debounce(updateActiveNavLink, 10);
-
-window.addEventListener('scroll', debouncedNavbarScroll);
-window.addEventListener('scroll', debouncedActiveNavLink);
+// Performance optimizations (scroll handlers are already combined above)
 
 // Image lazy loading fallback for older browsers
 function initializeLazyLoading() {
@@ -462,14 +457,20 @@ function initializeImageLoading() {
 
 // Enhanced animations and interactions
 function initializeEnhancedAnimations() {
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
+    // Subtle parallax effect for hero section (reduced to prevent text collision)
+    window.addEventListener('scroll', debounce(() => {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        const galleryHero = document.querySelector('.gallery-hero');
+
+        // Apply subtle parallax only if element exists and scroll is reasonable
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.transform = `translateY(${scrolled * 0.2}px)`;
         }
-    });
+        if (galleryHero && scrolled < window.innerHeight) {
+            galleryHero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        }
+    }, 16));
     
     // Enhanced hover effects for buttons
     document.querySelectorAll('.btn').forEach(btn => {
@@ -498,20 +499,7 @@ function initializeEnhancedAnimations() {
         galleryObserver.observe(item);
     });
     
-    // Smooth scroll effect for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // Smooth scroll is already handled in initializeSmoothScrolling()
     
     // Enhanced theme toggle interaction
     const themeToggle = document.getElementById('themeToggle');

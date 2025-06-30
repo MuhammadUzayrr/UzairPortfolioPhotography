@@ -59,6 +59,8 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: all var(--transition-normal);
+    padding-top: 0; /* Ensure no default padding that might cause issues */
+    margin-top: 0; /* Ensure no default margin */
 }
 
 img {
@@ -95,6 +97,8 @@ ul {
     z-index: var(--z-navbar);
     transition: all var(--transition-normal);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
 }
 
 .navbar.scrolled {
@@ -434,6 +438,7 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    align-items: start; /* Align items to start to handle different heights */
 }
 
 .gallery-item {
@@ -456,6 +461,39 @@ ul {
     height: 250px;
     object-fit: cover;
     transition: all var(--transition-normal);
+}
+
+/* 3:4 aspect ratio for portrait, abstract, street, and nature categories */
+.gallery-item[data-category="portrait"] img,
+.gallery-item[data-category="abstract"] img,
+.gallery-item[data-category="street"] img,
+.gallery-item[data-category="nature"] img {
+    height: 400px; /* 3:4 ratio fallback */
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Landscape images keep their original wider aspect ratio */
+.gallery-item[data-category="landscape"] img {
+    height: 225px; /* Wider aspect ratio for landscape fallback */
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 3/4) {
+    .gallery-item[data-category="portrait"] img,
+    .gallery-item[data-category="abstract"] img,
+    .gallery-item[data-category="street"] img,
+    .gallery-item[data-category="nature"] img {
+        height: 400px; /* Fixed height for 3:4 ratio */
+    }
+
+    .gallery-item[data-category="landscape"] img {
+        height: 225px; /* Fixed height for landscape */
+    }
 }
 
 .gallery-item:hover img {
@@ -1542,11 +1580,12 @@ body {
 
 /* Gallery Page Specific Styles */
 .gallery-hero {
-    padding: 120px 0 80px;
+    padding: 140px 0 80px; /* Increased top padding to prevent navbar collision */
     background: linear-gradient(135deg, var(--background-color) 0%, var(--secondary-color) 100%);
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-top: 0; /* Ensure no margin conflicts */
 }
 
 .gallery-hero::before {
@@ -1643,6 +1682,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    align-items: start; /* Align items to start to handle different heights */
 }
 
 .gallery-item-animated {
@@ -1707,6 +1747,25 @@ body {
     object-fit: cover;
     transition: all 0.4s ease;
     opacity: 0;
+}
+
+/* 3:4 aspect ratio for portrait, abstract, street, and nature categories */
+.gallery-item[data-category="portrait"] img,
+.gallery-item[data-category="abstract"] img,
+.gallery-item[data-category="street"] img,
+.gallery-item[data-category="nature"] img {
+    height: 400px; /* 3:4 ratio for 300px width containers */
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Landscape images keep their original wider aspect ratio */
+.gallery-item[data-category="landscape"] img {
+    height: 225px; /* Wider aspect ratio for landscape */
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
 }
 
 .gallery-item.image-loaded img {
@@ -1832,7 +1891,7 @@ body {
 /* Responsive Design for Gallery Page */
 @media (max-width: 768px) {
     .gallery-hero {
-        padding: 100px 0 60px;
+        padding: 120px 0 60px; /* Increased mobile top padding */
     }
     
     .gallery-filters {
@@ -1852,6 +1911,21 @@ body {
     
     .gallery-item img {
         height: 250px;
+    }
+
+    /* Maintain 3:4 ratio on mobile for specific categories */
+    .gallery-item[data-category="portrait"] img,
+    .gallery-item[data-category="abstract"] img,
+    .gallery-item[data-category="street"] img,
+    .gallery-item[data-category="nature"] img {
+        height: 350px; /* 3:4 ratio for mobile */
+        aspect-ratio: 3/4;
+    }
+
+    /* Landscape images on mobile */
+    .gallery-item[data-category="landscape"] img {
+        height: 200px; /* Wider aspect ratio for landscape on mobile */
+        aspect-ratio: 4/3;
     }
     
     .gallery-stats-grid {
